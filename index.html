@@ -19,6 +19,9 @@
     .hero img {
       width: 100%;
       height: auto;
+      max-height: 300px;
+      object-fit: cover;
+      display: block;
     }
 
     .form-container {
@@ -36,6 +39,7 @@
       margin: 8px 0;
       border-radius: 5px;
       border: 1px solid #ccc;
+      font-size: 16px;
     }
 
     form button {
@@ -45,6 +49,7 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 16px;
     }
 
     form button:hover {
@@ -66,18 +71,39 @@
       background-color: #999 !important;
       cursor: wait;
     }
+
+    @media (max-width: 768px) {
+      .form-container {
+        margin: -30px 10px 20px;
+        padding: 15px;
+      }
+
+      form input, form select {
+        padding: 12px;
+        font-size: 16px;
+      }
+
+      form button {
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      .hero img {
+        max-height: 200px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="hero">
-    <img src="https://i.ibb.co/wZwXpsWQ/rw3rw3rw3rrw.jpg">
+    <img src="https://i.ibb.co/wZwXpsWQ/rw3rw3rw3rrw.jpg" alt="CapitalLanka Hero Image">
   </div>
 
   <div class="form-container">
     <h2>ඉඩම් විස්තර පුරවන්න</h2>
     <form id="landForm">
-      <input type="text" name="fullName" placeholder="සම්පූර්ණ නම">
-      <input type="text" name="phone" placeholder="දුරකථන අංකය">
+      <input type="text" name="fullName" placeholder="සම්පූර්ණ නම" required>
+      <input type="text" name="phone" placeholder="දුරකථන අංකය" required>
       <input type="text" name="ownerAddress" placeholder="අයිතිකාරයාගේ ලිපිනය">
 
       <input type="text" name="landLocation" placeholder="ඉඩම තිබෙන ස්ථානය">
@@ -115,7 +141,7 @@
       submitBtn.classList.add("submitting");
       submitBtn.disabled = true;
 
-      // 5-second delay to simulate processing
+      // Simulate form processing
       setTimeout(() => {
         alert("ඔබගේ විස්තර සාර්ථකව ලැබී ඇත. ස්තුතියි!");
         form.reset();
