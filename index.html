@@ -25,12 +25,12 @@
       background: white;
       padding: 20px;
       max-width: 700px;
-      margin: -50px auto 30px;
+      margin: -50px auto 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       border-radius: 10px;
     }
 
-    form input, form textarea, form select {
+    form input, form select {
       width: 100%;
       padding: 10px;
       margin: 8px 0;
@@ -51,8 +51,20 @@
       background-color: #1e6bb8;
     }
 
-    h2 {
-      margin-top: 0;
+    #company-info {
+      background-color: #eaf2ff;
+      color: #0a2a66;
+      padding: 15px;
+      text-align: center;
+      border-top: 2px solid #2e86de;
+      margin-top: 40px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .submitting {
+      background-color: #999 !important;
+      cursor: wait;
     }
   </style>
 </head>
@@ -62,7 +74,7 @@
   </div>
 
   <div class="form-container">
-    <h2>ඉඩම් විස්තර සම්බන්ධ විශේෂාංග</h2>
+    <h2>ඉඩම් විස්තර පුරවන්න</h2>
     <form id="landForm">
       <input type="text" name="fullName" placeholder="සම්පූර්ණ නම">
       <input type="text" name="phone" placeholder="දුරකථන අංකය">
@@ -76,25 +88,41 @@
       <input type="text" name="currentPrice" placeholder="දැනට තිබෙන මිල">
       <input type="text" name="gramaDivision" placeholder="ප්‍රාදේශීය ලේකම් කොට්ඨාසය">
       <input type="text" name="landFullAddress" placeholder="ඉඩමේ සම්පූර්ණ ලිපිනය">
-      <input type="text" name="landSize" placeholder="ඉඩමේ ප්‍රමාණය (e.g. අක්කර/රුඩ්/පර්ච්)">
-      
+
       <label>ඉඩමේ පින්තූර Upload කරන්න:</label>
       <input type="file" name="landImages" multiple accept="image/*">
 
       <label>ඔප්පුවේ PDF හෝ Image එක Upload කරන්න:</label>
       <input type="file" name="deedFile" accept="image/*,.pdf">
 
-      <textarea name="additionalNotes" placeholder="අමතර විස්තර (වරණය කළ හැක)"></textarea>
-
-      <button type="submit">යවන්න</button>
+      <button type="submit" id="submitBtn">යවන්න</button>
     </form>
   </div>
 
+  <div id="company-info">
+    CapitalLanka Pvt Ltd | 📞 072-4561373
+  </div>
+
   <script>
-    document.getElementById('landForm').addEventListener('submit', function(e) {
+    const form = document.getElementById('landForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      alert("ඔබගේ විස්තර සාර්ථකව ලැබී ඇත. ස්තුතියි!");
-      this.reset(); // reset form after submission
+
+      // Disable button & show loading
+      submitBtn.textContent = "යැවෙමින්...";
+      submitBtn.classList.add("submitting");
+      submitBtn.disabled = true;
+
+      // 5-second delay to simulate processing
+      setTimeout(() => {
+        alert("ඔබගේ විස්තර සාර්ථකව ලැබී ඇත. ස්තුතියි!");
+        form.reset();
+        submitBtn.textContent = "යවන්න";
+        submitBtn.classList.remove("submitting");
+        submitBtn.disabled = false;
+      }, 5000);
     });
   </script>
 </body>
