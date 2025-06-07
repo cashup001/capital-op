@@ -1,131 +1,101 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ඉඩම් විස්තර පෝරමය</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 10px;
-    background-color: #f5f5f5;
-  }
-  h1 {
-    text-align: center;
-    color: #2c3e50;
-  }
-  form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  }
-  label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-    color: #34495e;
-  }
-  input[type="text"],
-  input[type="number"],
-  input[type="file"],
-  textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 6px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-size: 1rem;
-  }
-  textarea {
-    resize: vertical;
-  }
-  button {
-    margin-top: 20px;
-    padding: 12px 20px;
-    background-color: #27ae60;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  button:hover {
-    background-color: #219150;
-  }
-  .image-preview {
-    margin-top: 10px;
-    max-width: 100%;
-    max-height: 250px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CapitalLanka Pvt Ltd</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+    }
+
+    .form-container {
+      background: white;
+      padding: 20px;
+      max-width: 700px;
+      margin: -50px auto 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      padding: 10px 15px;
+      background-color: #2e86de;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #1e6bb8;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+  </style>
 </head>
 <body>
+  <div class="hero">
+    <img src="house.jpg" alt="House Image">
+  </div>
 
-<h1>ඉඩම් විස්තර පෝරමය</h1>
+  <div class="form-container">
+    <h2>ඉඩම් විස්තර සම්බන්ධ විශේෂාංග</h2>
+    <form id="landForm">
+      <input type="text" name="fullName" placeholder="සම්පූර්ණ නම">
+      <input type="text" name="phone" placeholder="දුරකථන අංකය">
+      <input type="text" name="ownerAddress" placeholder="අයිතිකාරයාගේ ලිපිනය">
 
-<form id="landForm">
-  <label for="ownerName">අයිතිකරුගේ නම</label>
-  <input type="text" id="ownerName" name="ownerName" placeholder="නම ඇතුළත් කරන්න" required />
+      <input type="text" name="landLocation" placeholder="ඉඩම තිබෙන ස්ථානය">
+      <input type="text" name="landPerch" placeholder="පර්චස් ප්‍රමාණය">
+      <input type="text" name="marketPrice" placeholder="අවට ඉඩම්වල මිල දර්ශනය">
+      <input type="text" name="ownership" placeholder="ඉඩමේ අයිතිය (සම්පූර්ණද?)">
+      <input type="text" name="estimatedValue" placeholder="ඉඩමේ සම්පූර්ණ වටිනාකම">
+      <input type="text" name="currentPrice" placeholder="දැනට තිබෙන මිල">
+      <input type="text" name="gramaDivision" placeholder="ප්‍රාදේශීය ලේකම් කොට්ඨාසය">
+      <input type="text" name="landFullAddress" placeholder="ඉඩමේ සම්පූර්ණ ලිපිනය">
+      <input type="text" name="landSize" placeholder="ඉඩමේ ප්‍රමාණය (e.g. අක්කර/රුඩ්/පර්ච්)">
+      
+      <label>ඉඩමේ පින්තූර Upload කරන්න:</label>
+      <input type="file" name="landImages" multiple accept="image/*">
 
-  <label for="nicNumber">ජාතික හැඳුනුම්පත් අංකය</label>
-  <input type="text" id="nicNumber" name="nicNumber" placeholder="NIC අංකය" required />
+      <label>ඔප්පුවේ PDF හෝ Image එක Upload කරන්න:</label>
+      <input type="file" name="deedFile" accept="image/*,.pdf">
 
-  <label for="deedNumber">ඔප්පු අංකය</label>
-  <input type="text" id="deedNumber" name="deedNumber" placeholder="ඔප්පු අංකය" />
+      <textarea name="additionalNotes" placeholder="අමතර විස්තර (වරණය කළ හැක)"></textarea>
 
-  <label for="landAddress">ඉඩමේ ලිපිනය</label>
-  <textarea id="landAddress" name="landAddress" rows="3" placeholder="ඉඩමේ නිවැරදි ලිපිනය" required></textarea>
+      <button type="submit">යවන්න</button>
+    </form>
+  </div>
 
-  <label for="landSize">ඉඩමේ ප්‍රමාණය (පර්චස්)</label>
-  <input type="number" id="landSize" name="landSize" placeholder="ඉඩමේ ප්‍රමාණය" min="0" step="0.01" required />
-
-  <label for="price">මිල (රුපියල්)</label>
-  <input type="number" id="price" name="price" placeholder="මිල" min="0" step="100" required />
-
-  <label for="landImage">ඉඩමේ පින්තූරය උඩුගත කරන්න</label>
-  <input type="file" id="landImage" name="landImage" accept="image/*" />
-
-  <img id="previewImage" class="image-preview" src="" alt="පින්තූර පෙරදසුන" style="display:none;" />
-
-  <button type="submit">තොරතුරු සුරක්ෂිත කරන්න</button>
-</form>
-
-<script>
-  // පින්තූර පෙරදසුන සඳහා JS
-  const landImageInput = document.getElementById('landImage');
-  const previewImage = document.getElementById('previewImage');
-
-  landImageInput.addEventListener('change', function() {
-    const file = this.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        previewImage.setAttribute('src', e.target.result);
-        previewImage.style.display = 'block';
-      }
-      reader.readAsDataURL(file);
-    } else {
-      previewImage.setAttribute('src', '');
-      previewImage.style.display = 'none';
-    }
-  });
-
-  // Form submit කිරීම
-  document.getElementById('landForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('තොරතුරු සුරක්ෂිත කර ඇත!');
-    // මෙහිදී ඔබට form data save කරන්න හෝ server එකට යවන්න පුළුවන්.
-    this.reset();
-    previewImage.style.display = 'none';
-  });
-</script>
-
+  <script>
+    document.getElementById('landForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("ඔබගේ විස්තර සාර්ථකව ලැබී ඇත. ස්තුතියි!");
+      this.reset(); // reset form after submission
+    });
+  </script>
 </body>
 </html>
